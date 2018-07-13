@@ -42,6 +42,8 @@ gem 'jquery-rails'
 
 gem 'devise'
 
+gem 'figaro'
+
 
 group :production do
   gem 'pg'
