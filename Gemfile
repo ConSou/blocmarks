@@ -44,6 +44,8 @@ gem 'devise'
 
 gem 'figaro'
 
+gem 'faker'
+
 
 group :production do
   gem 'pg'

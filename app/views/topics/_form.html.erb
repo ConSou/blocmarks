@@ -1,0 +1,6 @@
+<%= form_for @topic do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, :class => 'form-control', placeholder: "Enter new Topic here..." %>
+
+  <%= f.submit "Save", class: "btn btn-success" %>
+<% end %>
