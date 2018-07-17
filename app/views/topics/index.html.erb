@@ -4,14 +4,12 @@
   <p> <%= link_to "Add Topic", new_topic_path %> </p>
 <% end %>
 
-
-
 <% @topics.each do |topic| %>
 <div class="topic-list">
   <h2> <%= link_to "##{topic.title}", topic %> </h2>
   <% topic.bookmarks.first(4).each do |mark| %>
     <div class="marks">
-      <%= mark.url %>
+      <%= link_to "#{mark.url}", topic_bookmark_url(topic, mark), :class => 'linked-text' %>
     </div>
   <% end %>
   </div>

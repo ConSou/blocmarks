@@ -13,7 +13,7 @@
     <div class="marks">
       <%= mark.url %>
       <div>
-        <%= link_to "View", topic_bookmark_url(mark), :class => 'btn btn-default view-button' %>
+        <%= link_to "View", topic_bookmark_url(@topic, mark), :class => 'btn btn-default view-button' %>
       </div>
     </div>
   <% end %>

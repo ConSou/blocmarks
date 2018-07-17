@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @topics = Topic.all
+    @topics = Topic.order("title ASC")
   end
 
   def show
@@ -22,7 +22,6 @@ class TopicsController < ApplicationController
       flash[:notice] = "Your topic was added"
       redirect_to @topic
     else
-      flash[:alert] = "There was an error saving your topic"
       render :new
     end
 
@@ -40,7 +39,6 @@ class TopicsController < ApplicationController
       flash[:notice] = "Topic was updated successfully"
       redirect_to @topic
     else
-      flash[:alert] = "There was an issue updating your topic"
       render :edit
     end
   end
@@ -55,7 +53,7 @@ class TopicsController < ApplicationController
       flash[:alert] = "There was an error removing topic at this time"
       redirect_to topics_path
     end
-    
+
   end
 
   private
