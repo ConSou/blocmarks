@@ -8,9 +8,13 @@ class IncomingController < ApplicationController
     @topic.Topic.create(title: params[:subject])
     @topic.user = params[:sender]
 
+    @topic.save
+
     url = params["body-plain"]
 
     @bookmark = @topic.bookmarks.build(url)
+
+    @bookmark.save
     head 200
   end
 
