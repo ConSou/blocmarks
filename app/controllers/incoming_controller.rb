@@ -5,12 +5,13 @@ class IncomingController < ApplicationController
     puts "INCOMING PARAMS: #{params}"
 
     @topic = Topic.new
-    @topic.title = params[:subject]
+    @topic.Topic.create(title: params[:subject])
     @topic.user = params[:sender]
 
     url = params["body-plain"]
 
     @bookmark = @topic.bookmarks.build(url)
+    head 200
   end
 
 end
