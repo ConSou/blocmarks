@@ -1,0 +1,22 @@
+<h1> <%= "#" + @topic.title %>
+<%= link_to "Add Bookmark", new_topic_bookmark_path(@topic), :class => 'btn btn-default view-button' %>
+</h1>
+<% if current_user %>
+  <p>
+     <%= link_to "Edit", edit_topic_path %> |
+     <%= link_to "Remove", @topic, method: :delete, data: {confirm: "Are you sure you want to remove topic?  All bookmarks in topic will be removed as well"} %>
+  </p>
+  <% end %>
+
+<% if @topic.bookmarks.count > 0 %>
+  <% @topic.bookmarks.each do |mark| %>
+    <div class="marks">
+      <%= mark.url %>
+      <div>
+        <%= link_to "View", topic_bookmark_url(@topic, mark), :class => 'btn btn-default view-button' %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <p> No bookmarks for this topic! </p>
+<% end %>
