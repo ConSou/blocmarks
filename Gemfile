@@ -46,6 +46,8 @@ gem 'figaro'
 
 gem 'faker'
 
+gem 'pundit'
+
 
 group :production do
   gem 'pg'

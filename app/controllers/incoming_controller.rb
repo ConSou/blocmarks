@@ -3,8 +3,6 @@ class IncomingController < ApplicationController
 
   def create
 
-    puts "$$$$$$$$$$$$$$$$$$$$$"
-
     @user = User.find_by(email: params[:sender])
     @topic = Topic.find_by(title: params[:subject])
 
