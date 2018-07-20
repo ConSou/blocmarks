@@ -17,8 +17,7 @@ class IncomingController < ApplicationController
     end
 
     if @topic.nil?
-      @topic = Topic.create!(title: params[:subject])
-      @topic.user = @user
+      @topic = Topic.create!(title: params[:subject], user: @user)
     end
 
     @bookmark = @topic.bookmarks.create(url: @url)
