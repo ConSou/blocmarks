@@ -30,6 +30,7 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = @topic.bookmarks.build(bookmark_params)
+    @bookmark.user = current_user
     authorize @bookmark
 
     if @bookmark.save
