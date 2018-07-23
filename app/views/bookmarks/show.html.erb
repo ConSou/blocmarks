@@ -1,4 +1,9 @@
-<h1> <%= @bookmark.url %> </h1>
+<h1>
+  <%= @bookmark.url %>
+  <% if current_user %>
+    <%= render partial: 'likes/like', locals: {bookmark: @bookmark} %>
+  <% end %>
+</h1>
 <% if current_user == @bookmark.user %>
   <p>
     <%= link_to "Edit", edit_topic_bookmark_path %> |

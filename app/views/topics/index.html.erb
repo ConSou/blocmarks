@@ -10,6 +10,9 @@
   <% topic.bookmarks.first(4).each do |mark| %>
     <div class="marks">
       <%= link_to "#{mark.url}", topic_bookmark_url(topic, mark), :class => 'linked-text' %>
+      <% if current_user %>
+        <%= render partial: 'likes/like', locals: {bookmark: mark} %>
+      <% end %>
     </div>
   <% end %>
   </div>

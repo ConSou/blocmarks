@@ -14,6 +14,9 @@
       <%= mark.url %>
       <div>
         <%= link_to "View", topic_bookmark_url(@topic, mark), :class => 'btn btn-default view-button' %>
+        <% if current_user %>
+          <%= render partial: 'likes/like', locals: {bookmark: mark} %>
+        <% end %>
       </div>
     </div>
   <% end %>
