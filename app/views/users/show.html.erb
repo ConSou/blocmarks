@@ -1,0 +1,20 @@
+<h1>My Blocmarks</h1>
+<% @bookmarks.each do |mark| %>
+  <div class="marks">
+    <%= mark.url %>
+  <div>
+    <%= link_to "View", mark, :class => 'btn btn-default view-button' %>
+    <% if current_user %>
+      <%= render partial: 'likes/like', locals: {bookmark: mark} %>
+    <% end %>
+  </div>
+  </div>
+
+<% end %>
+
+<h1>Liked Blocmarks</h1>
+<% @likes.each do |like| %>
+  <div class="marks">
+    <%= like.bookmark.url %>
+  </div>
+<% end %>

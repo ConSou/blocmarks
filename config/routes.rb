@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'users/show'
   get 'likes/index'
   post :incoming, to: 'incoming#create'
 
@@ -10,7 +11,8 @@ Rails.application.routes.draw do
   resources :bookmarks do
      resources :likes, only: [:index, :create, :destroy]
   end
-  
+
   devise_for :users
+  resources :users, only: [:show]
   root 'welcome#index'
 end
