@@ -1,7 +1,7 @@
 <h1> <%= "#" + @topic.title %>
 <%= link_to "Add Bookmark", new_topic_bookmark_path(@topic), :class => 'btn btn-default view-button' %>
 </h1>
-<% if current_user %>
+<% if current_user == @topic.user %>
   <p>
      <%= link_to "Edit", edit_topic_path %> |
      <%= link_to "Remove", @topic, method: :delete, data: {confirm: "Are you sure you want to remove topic?  All bookmarks in topic will be removed as well"} %>
