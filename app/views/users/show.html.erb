@@ -1,13 +1,8 @@
 <h1>My Blocmarks</h1>
 <% @bookmarks.each do |mark| %>
+  <h2> <%= link_to "##{mark.topic.title}", mark.topic %> </h2>
   <div class="marks">
-    <%= mark.url %>
-  <div>
-    <%= link_to "View", mark, :class => 'btn btn-default view-button' %>
-    <% if current_user %>
-      <%= render partial: 'likes/like', locals: {bookmark: mark} %>
-    <% end %>
-  </div>
+    <%= link_to "#{mark.url}", topic_bookmark_url(mark.topic, mark), :class => 'linked-text' %>
   </div>
 
 <% end %>
@@ -15,6 +10,9 @@
 <h1>Liked Blocmarks</h1>
 <% @likes.each do |like| %>
   <div class="marks">
-    <%= like.bookmark.url %>
+    <%= link_to "#{like.bookmark.url}", topic_bookmark_url(like.bookmark.topic, like.bookmark), :class => 'linked-text' %>
+    <% if current_user %>
+      <%= render partial: 'likes/like', locals: {bookmark: like.bookmark} %>
+    <% end %>
   </div>
 <% end %>
